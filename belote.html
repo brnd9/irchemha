@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link
+              rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous"
+            />
 </head>
 <style>
     .score{
@@ -11,57 +17,124 @@
         justify-content: center;
         align-items: center ;
     }
+    p{
+        
+        
+    }
+    .card-body{
+        overflow: auto;
+        height: 250px;
+    }
+
 </style>
 <body>
     <center>
-        <div></div>
-        <div class="score">
-            <input type="tel" id="team1">
-            <select name="option" id="option">
-                <option name="option">kabot 3arbi</option>
-                <option name="option">kabout declare</option>
-                <option name="option">contrer</option>
-                <option name="option">contrer x2</option>
-            </select>
-        </div>
-        <div class="score">
-            <input type="tel" id="team2">
-            <select name="option" id="option">
-                <option name="option">kabot 3arbi</option>
-                <option name="option">kabout declare</option>
-                <option name="option">contrer</option>
-                <option name="option">contrer x2</option>
-            </select>
-        </div>
-        <div class="marka" id="marka">
-            <div class="container" id="cart">
-                <h2>Cart</h2>
-                
-                <table class="table">
-                    <thead>
-                        <tr>
+            <div class="container mt-5">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <input type="tel" id="team1" class="form-control" placeholder="Team 1 score" />
+                  </div>
+                  <div class="form-group">
+                    <select name="option" id="option" class="form-control">
+                        <option value="contrer_x2">option</option>
+                      <option value="kabot_3arbi">kabot 3arbi</option>
+                      <option value="kabout_declare">kabout declare</option>
+                      <option value="contrer">contrer</option>
+                      <option value="contrer_x2">contrer x2</option>
+                    </select>
+                  </div>
+                  
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <input type="tel" id="team2" class="form-control" placeholder="Team 2 score" />
+                  </div>
+                  <div class="form-group">
+                    <select name="option" id="option" class="form-control">
+                        
+                        <option value="kabot_3arbi">kabot 3arbi</option>
+                        <option value="kabout_declare">kabout declare</option>
+                        <option value="contrer">contrer</option>
+                        <option value="contrer_x2">contrer x2</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <button class="btn" onclick="renderCart()">irchem</button>
+              <div class="row mt-5">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h2>marka</h2>
+                    </div>
+                    <table class="table">
+                          <tr>
                             <th>N</th>
                             <th>V</th>
-                        </tr>
-                    </thead>
-                </table>
-        </div>
+                          </tr>
+                        </table>
+                    <div class="card-body">
+                      <table class="table">
+                        
+                        
+                           <tbody id="cart-body"></tbody>
+                        
+                        
+                      </table>
+                    </div>
+                    <table class="table">
+                          <tr>
+                            <td><h3 id="scor1">0</h3></td>
+                            <td><h3 id="scor2">0</h3></td>
+                          </tr>
+                      </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script>
+                let ScorTeam1=0;
+                let ScorTeam2=0;
+                function selectOption(){
+
+                }
+                function renderCart() {
+                    let cartBody = document.getElementById('cart-body');
+                    let team1=document.getElementById('team1').value;
+                    let team2=document.getElementById('team2').value;
+                    let scor1=document.getElementById('scor1');
+                    let scor2=document.getElementById('scor2');
+                    ScorTeam1=ScorTeam1+ Number(team1) ;
+                    ScorTeam2=ScorTeam2+ Number(team2);
+                    let row = document.createElement('tr');
+                    let productCell = document.createElement('td');
+                    let priceCell = document.createElement('td');
+                    productCell.textContent = String(team1) ;
+                    priceCell.textContent = String(team2) ;
+                    cartBody.appendChild(row);
+                    row.appendChild(productCell);
+                    row.appendChild(priceCell);
+                    scor1.innerHTML=String(ScorTeam1);
+                    scor2.innerHTML=String(ScorTeam2);
+                    document.getElementById('team1').value="";
+                    document.getElementById('team2').value="";
+
+                };
+            </script>
+            <script
+              src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+              integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+              crossorigin="anonymous"
+            ></script>
+            <script
+              src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+              integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+              crossorigin="anonymous"
+            ></script>
     </center>
 
     
 </body>
-    <script>
-        function renderCart() {
-        let cartBody = document.getElementById('marka');
-        let team1=document.getElementById('team1').value;
-        let team2=document.getElementById('team2').value;
-        cartBody.innerHTML = '';
-        cart.forEach(productId => {
-            let row = document.createElement('tr');
-            let productCell = document.createElement('td');
-            productCell.textContent = team1 ;
-            productCell.textContent = team2 ;
-            cartBody.appendChild(row);
-        });
-    </script>
+
 </html>
