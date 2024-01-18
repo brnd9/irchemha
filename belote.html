@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .score{
+        display: inline-block;
+        justify-content: center;
+        align-items: center ;
+    }
+</style>
+<body>
+    <center>
+        <div></div>
+        <div class="score">
+            <input type="tel" id="team1">
+            <select name="option" id="option">
+                <option name="option">kabot 3arbi</option>
+                <option name="option">kabout declare</option>
+                <option name="option">contrer</option>
+                <option name="option">contrer x2</option>
+            </select>
+        </div>
+        <div class="score">
+            <input type="tel" id="team2">
+            <select name="option" id="option">
+                <option name="option">kabot 3arbi</option>
+                <option name="option">kabout declare</option>
+                <option name="option">contrer</option>
+                <option name="option">contrer x2</option>
+            </select>
+        </div>
+        <div class="marka" id="marka">
+            <div class="container" id="cart">
+                <h2>Cart</h2>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>N</th>
+                            <th>V</th>
+                        </tr>
+                    </thead>
+                </table>
+        </div>
+    </center>
+
+    
+</body>
+    <script>
+        function renderCart() {
+        let cartBody = document.getElementById('marka');
+        let team1=document.getElementById('team1').value;
+        let team2=document.getElementById('team2').value;
+        cartBody.innerHTML = '';
+        cart.forEach(productId => {
+            let row = document.createElement('tr');
+            let productCell = document.createElement('td');
+            productCell.textContent = team1 ;
+            productCell.textContent = team2 ;
+            cartBody.appendChild(row);
+        });
+    </script>
+</html>
